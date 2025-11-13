@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GRA — Dopasuj zdjęcie do opisu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>🎯 GRA — Dopasuj zdjęcie do opisu</h1>
+
+    <div class="topbar">
+      <div id="matches">Dopasowane: 0</div>
+      <div id="attempts">Próby: 0</div>
+      <button id="restartBtn">🔄 Restart</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="board" class="game-board"></section>
+    <div id="message" class="message" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    <small>© GRA — Stwórz własne pary zdjęć i opisów • folder <b>images/</b></small>
+  </footer>
+
+  <script src="pairs.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* style.css — GRA: Dopasuj zdjęcie do opisu */
+
+:root {
+  --bg1: #e6f7ff;
+  --accent: #0b74d1;
+  --card-bg: #ffffff;
+  --card-border: #cfe9ff;
+  --shadow: rgba(11,116,209,0.15);
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg1), #fff 70%);
+  color: #113;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+h1 {
+  margin: 10px 0 6px;
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 2px white;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.topbar > div {
+  background: white;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+button#restartBtn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+}
+button#restartBtn:hover {
+  background: #095ea7;
+  transform: scale(1.05);
+}
+
+main {
+  width: 100%;
+  max-width: 900px;
+}
+
+.game-board {
+  display: grid;
+  gap: 12px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.card {
+  width: 160px;
+  height: 120px;
+  perspective: 1000px;
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+  cursor: default;
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border: 2px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px var(--shadow);
+  overflow: hidden;
+}
+.face-front {
+  transform: rotateY(180deg);
+}
+.face-back {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+  background: linear-gradient(135deg, #ffffff, #eaf5ff);
+}
+.face-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.desc-text {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #124;
+  padding: 6px;
+}
+
+.message {
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 700;
+  color: #007733;
+  min-height: 1.5em;
+}
+
+/* 📱 Responsywność */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+  .card {
+    width: 40vw;
+    height: 30vw;
+  }
+  .desc-text {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+  .card {
+    width: 44vw;
+    height: 34vw;
+  }
+}
